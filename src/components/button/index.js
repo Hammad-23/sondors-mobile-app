@@ -11,12 +11,12 @@ export default function CustomButton(props) {
 
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: '#00B7DD',
+    backgroundColor: '#a61925',
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 44,
-    borderRadius: 25,
+    height: 50,
+    borderRadius: 10,
   },
   txt: {
     color: 'white',

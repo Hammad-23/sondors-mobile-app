@@ -12,6 +12,9 @@ import React from 'react';
 import {Image} from 'react-native'
 import BottomTabs from './src/navigations/bottomTab'
 import Welcome from './src/screens/welcome'
+import SignUp from './src/screens/signup'
+import LogIn from './src/screens/login'
+import Home from './src/screens/home'
 import store from './src/redux/store'
 import {Provider} from 'react-redux'
 import Feather from 'react-native-vector-icons/Feather'
@@ -26,8 +29,11 @@ export default function App(){
   return(
     <Provider store={store}>
     <NavigationContainer>
-    <Stack.Navigator initialRouteName="Welcome">
-      <Stack.Screen  name="Welcome" component={Welcome} />
+    <Stack.Navigator screenOptions={{headerShown:false}}  initialRouteName="Welcome">
+      <Stack.Screen   name="Welcome" component={Welcome} />
+      <Stack.Screen   name="Signup" component={SignUp} />
+      <Stack.Screen   name="Login" component={LogIn} />
+      <Stack.Screen   name="home" component={BottomTabs} />
 
   
 
