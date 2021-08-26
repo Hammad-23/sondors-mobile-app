@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView, Image, StyleSheet} from 'react-native';
+import {View, Text, ScrollView, Image, StyleSheet, SafeAreaView} from 'react-native';
 import Header from '../../components/header';
 import Card from '../../components/card';
 import Assembly from '../../../assets/images/assemblyPic.png';
@@ -11,7 +11,7 @@ import Manual from '../../../assets/images/manual.png';
 
 export default function Home({navigation}) {
   return (
-    <>
+    <SafeAreaView style={{flex:1}} >
       <Header />
       <ScrollView contentContainerStyle={style.container}>
         <View style={style.contentWrapper}>
@@ -75,7 +75,7 @@ export default function Home({navigation}) {
           </View>
         </View>
       </ScrollView>
-    </>
+    </SafeAreaView>
   );
 }
 

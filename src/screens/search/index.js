@@ -8,7 +8,9 @@ export default function Search(){
 
         
 
-
+        <View style={{justifyContent:"center", alignItems:"center", flex:1}} >
+        <Text>Coming soon...</Text>
+        </View>
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView, Image, StyleSheet} from 'react-native';
+import {View, Text, ScrollView, Image, StyleSheet,SafeAreaView} from 'react-native';
 import Header from '../../components/header';
 import Card from '../../components/card';
 import Assembly from '../../../assets/images/assemblyPic.png';
@@ -12,12 +12,16 @@ import VideoCards from '../../components/video';
 
 export default function AssemblyGuide() {
   return (
-    <>
+    <SafeAreaView style={{flex:1}} >
       <Header />
       <ScrollView contentContainerStyle={style.container}>
-        <View style={style.contentWrapper}>{/* <VideoCards/> */}</View>
+        <View style={style.contentWrapper}>{/* <VideoCards/> */}
+        <View style={{justifyContent:"center", alignItems:"center", flex:1}} >
+        <Text>Coming soon...</Text>
+        </View>
+        </View>
       </ScrollView>
-    </>
+    </SafeAreaView>
   );
 }
 
