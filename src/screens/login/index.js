@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Image,
   TextInput,
+  SafeAreaView,
 } from 'react-native';
 
 import CustomButton from '../../components/button';
@@ -14,7 +15,7 @@ import Input from '../../components/input';
 
 export default function LogIn({navigation}) {
   return (
-    <>
+    <SafeAreaView style={{flex:1}}>
       <ScrollView contentContainerStyle={style.screenContainer}>
         <View style={style.ContentContainer}>
           <View style={style.logoContainer}>
@@ -45,7 +46,7 @@ export default function LogIn({navigation}) {
           </View>
         </View>
       </ScrollView>
-    </>
+    </SafeAreaView>
   );
 }
 

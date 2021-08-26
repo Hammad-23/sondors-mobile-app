@@ -7,7 +7,8 @@ import {
   StyleSheet,
   Image,
   TextInput,
-  CheckBox
+  CheckBox,
+  SafeAreaView
   
 } from 'react-native';
 
@@ -18,7 +19,7 @@ export default function SignUp({navigation}) {
   const [isSelected, setSelection] = useState(false);
 
   return (
-    <>
+    <SafeAreaView style={{flex:1}} >
       <ScrollView contentContainerStyle={style.screenContainer}>
         <View style={style.ContentContainer}>
           <View style={style.logoContainer}>
@@ -74,7 +75,7 @@ export default function SignUp({navigation}) {
           </View>
         </View>
       </ScrollView>
-    </>
+    </SafeAreaView>
   );
 }
 
