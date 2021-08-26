@@ -18,8 +18,7 @@ export default function LogIn({navigation}) {
       <ScrollView contentContainerStyle={style.screenContainer}>
         <View style={style.ContentContainer}>
           <View style={style.logoContainer}>
-            <Text style={style.logo}>SONDORS</Text>
-            <Text style={style.txt}>PREMIUM ELECTRIC BIKES</Text>
+          <Image style={style.logoStyle} source={require('../../../assets/images/logo.png')} />
           </View>
 
           <View style={style.signUpheading}>
@@ -36,7 +35,12 @@ export default function LogIn({navigation}) {
             </View>
 
             <View style={style.inpContainer}>
-              <CustomButton onPress={()=>{navigation.navigate('home')}} title="LOG IN" />
+              <CustomButton
+                onPress={() => {
+                  navigation.navigate('home');
+                }}
+                title="LOG IN"
+              />
             </View>
           </View>
         </View>
@@ -74,8 +78,11 @@ const style = StyleSheet.create({
     marginTop: 20,
   },
   formSec: {
-    
-    height:'70%',
-    justifyContent:'center'
+    height: '70%',
+    justifyContent: 'center',
   },
+  logoStyle:{
+    width:153,
+    height:25
+  }
 });

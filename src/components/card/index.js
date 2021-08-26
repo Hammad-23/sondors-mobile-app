@@ -6,10 +6,13 @@ import {View,Text,Image,TouchableOpacity,StyleSheet} from 'react-native';
 export default function Card(props){
     return(
         <>
-        <TouchableOpacity style={style.card}>
+        <TouchableOpacity {...props} style={style.card}>
 
-            <Image style={style.CardImg} source={require('../../../assets/images/cycle.jpg')} />
-            <Text style={{fontWeight:'bold'}} >{props.title}</Text>
+            <Image style={{
+                height:props.height,
+                width:props.width,
+            }} source={props.src} />
+            <Text style={{fontWeight:'bold',marginTop:20}} >{props.title}</Text>
 
 
 
@@ -25,8 +28,8 @@ export default function Card(props){
 
 const style = StyleSheet.create({
     CardImg:{
-        height:100,
-        width:100
+        height:52.58,
+        width:63
     },
     card:{
         backgroundColor:"#FFFF",

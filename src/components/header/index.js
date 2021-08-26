@@ -17,8 +17,7 @@ export default function Header(props){
          </View>
 
          <View>
-             <Text style={style.logo}>SONDORS</Text>
-             <Text style={style.txt}>PREMIUM ELECTRIC BIKES</Text>
+         <Image style={style.logoStyle} source={require('../../../assets/images/logo.png')} />
          </View>
 
          <View style={style.rightSideIcons}>
@@ -59,6 +58,10 @@ const style = StyleSheet.create({
         justifyContent:'space-between',
         width:50
         
-    }
+    },
+    logoStyle:{
+        width:153,
+        height:25
+      }
 
 })
