@@ -15,16 +15,16 @@ export default function Welcome({navigation}) {
           <Text style={style.txt}> SMART STEP </Text>
         </View>
 
-      
-      <View style={{marginTop:20}} >
-        <LinearGradient style={style.gradContainer} colors={['#EE7474', '#FFFFFF00']} >
-
-        <Image
-          style={style.img}
-          source={require('../../../assets/images/cycle3.png')}
-        />
-        </LinearGradient>
-      </View>
+        <View style={{marginTop: 20}}>
+          <LinearGradient
+            style={style.gradContainer}
+            colors={['#EE7474', '#FFFFFF00']}>
+            <Image
+              style={style.img}
+              source={require('../../../assets/images/cycle3.png')}
+            />
+          </LinearGradient>
+        </View>
 
         <View style={style.btnContainer}>
           <CustomButton
@@ -75,8 +75,8 @@ const style = StyleSheet.create({
     borderRadius: 200,
     marginTop: 50,
   },
-  gradContainer:{
-    borderRadius:300,
-    height:300
-  }
+  gradContainer: {
+    borderRadius: 300,
+    height: 300,
+  },
 });

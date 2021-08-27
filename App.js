@@ -39,7 +39,7 @@ export default function App() {
           <Stack.Screen name="Welcome" component={Welcome} />
           <Stack.Screen name="Signup" component={SignUp} />
           <Stack.Screen name="Login" component={LogIn} />
-          <Stack.Screen name="home" component={BottomTabs} />
+          <Stack.Screen name="home" component={Home} />
           <Stack.Screen name="Store" component={SandorsStore} />
           <Stack.Screen name="assembly" component={AssemblyGuide} />
           <Stack.Screen name="troubleshooting" component={TroubleShooting} />
