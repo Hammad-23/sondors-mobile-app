@@ -7,23 +7,26 @@ import {
   StyleSheet,
   Image,
   TextInput,
-  CheckBox,
-  SafeAreaView
-  
+  SafeAreaView,
 } from 'react-native';
 
 import CustomButton from '../../components/button';
 import Input from '../../components/input';
+import Select from '../../components/picker';
+import CheckBoxx from '../../components/checkbox';
 
 export default function SignUp({navigation}) {
   const [isSelected, setSelection] = useState(false);
 
   return (
-    <SafeAreaView style={{flex:1}} >
+    <SafeAreaView style={{flex: 1}}>
       <ScrollView contentContainerStyle={style.screenContainer}>
         <View style={style.ContentContainer}>
           <View style={style.logoContainer}>
-          <Image style={style.logoStyle} source={require('../../../assets/images/logo.png')} />
+            <Image
+              style={style.logoStyle}
+              source={require('../../../assets/images/logo.png')}
+            />
           </View>
 
           <View style={style.signUpheading}>
@@ -48,21 +51,17 @@ export default function SignUp({navigation}) {
             </View>
 
             <View style={style.inpContainer}>
-              <Input placeholder="    State" />
+              <Select />
             </View>
 
             <View style={style.inpContainer}>
               <Input placeholder="    Serial Number" />
             </View>
 
-            {/* <View style={style.inpContainer}>
-            <CheckBox
-          value={isSelected}
-          onValueChange={setSelection}
-          style={styles.checkbox}
-        />
-        <Text style={styles.label}>Do you like React Native?</Text>
-        </View> */}
+            <View style={style.inpContainer2}>
+              <CheckBoxx />
+              <Text>Agree to the terms of service</Text>
+            </View>
 
             <View style={style.inpContainer}>
               <CustomButton
@@ -107,11 +106,16 @@ const style = StyleSheet.create({
   inpContainer: {
     marginTop: 10,
   },
+  inpContainer2: {
+    marginTop: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   formSec: {
     marginTop: 40,
   },
-  logoStyle:{
-    width:153,
-    height:25
-  }
+  logoStyle: {
+    width: 153,
+    height: 25,
+  },
 });

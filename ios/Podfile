@@ -16,6 +16,10 @@ target 'telemed' do
 
   pod 'react-native-video', :path => '../node_modules/react-native-video'
 
+  pod 'RNCCheckbox', :path => '../node_modules/@react-native-community/checkbox'
+
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
   target 'telemedTests' do
     inherit! :complete
     # Pods for testing

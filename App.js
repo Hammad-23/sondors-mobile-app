@@ -18,6 +18,7 @@ import store from './src/redux/store';
 import SandorsStore from './src/screens/store';
 import AssemblyGuide from './src/screens/assemblyguide';
 import TroubleShooting from './src/screens/troubleshooting';
+import OwnersManual from './src/screens/ownersManual';
 import {Provider} from 'react-redux';
 import Feather from 'react-native-vector-icons/Feather';
 
@@ -42,6 +43,7 @@ export default function App() {
           <Stack.Screen name="Store" component={SandorsStore} />
           <Stack.Screen name="assembly" component={AssemblyGuide} />
           <Stack.Screen name="troubleshooting" component={TroubleShooting} />
+          <Stack.Screen name="Ownersmanual" component={OwnersManual} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

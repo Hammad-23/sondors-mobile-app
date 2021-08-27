@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {View, Text, ScrollView, StyleSheet, Image} from 'react-native';
-
+import LinearGradient from 'react-native-linear-gradient';
 import CustomButton from '../../components/button';
 
 export default function Welcome({navigation}) {
@@ -15,10 +15,16 @@ export default function Welcome({navigation}) {
           <Text style={style.txt}> SMART STEP </Text>
         </View>
 
+      
+      <View style={{marginTop:20}} >
+        <LinearGradient style={style.gradContainer} colors={['#EE7474', '#FFFFFF00']} >
+
         <Image
           style={style.img}
-          source={require('../../../assets/images/cycle2.png')}
+          source={require('../../../assets/images/cycle3.png')}
         />
+        </LinearGradient>
+      </View>
 
         <View style={style.btnContainer}>
           <CustomButton
@@ -69,4 +75,8 @@ const style = StyleSheet.create({
     borderRadius: 200,
     marginTop: 50,
   },
+  gradContainer:{
+    borderRadius:300,
+    height:300
+  }
 });

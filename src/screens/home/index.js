@@ -66,7 +66,7 @@ export default function Home({navigation}) {
               }}
               title="SONDORS store"
             />
-            <Card
+            <Card onPress={()=>{navigation.navigate('Ownersmanual')}}
               height={61.84}
               width={56}
               src={Manual}
