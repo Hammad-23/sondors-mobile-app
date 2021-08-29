@@ -11,13 +11,34 @@ import Manual from '../../../assets/images/manual.png';
 import VideoCards from '../../components/video';
 
 export default function AssemblyGuide() {
+  let videos=[{
+
+  },{
+
+  },{
+
+  },{
+
+  }]
   return (
     <SafeAreaView style={{flex:1}} >
       <Header />
       <ScrollView contentContainerStyle={style.container}>
         <View style={style.contentWrapper}>{/* <VideoCards/> */}
         <View style={{justifyContent:"center", alignItems:"center", flex:1}} >
-        <Text>Coming soon...</Text>
+          {videos.map((item)=>{
+            return(
+              <View style={style.videoContainer}>
+            
+              <Text> <VideoCards/></Text>
+              <Text style={{fontWeight:'bold',marginTop:10}}>SONDORS how to install bike pedals</Text>
+              </View>
+            )
+          })
+         
+
+          }
+       
         </View>
         </View>
       </ScrollView>
@@ -49,4 +70,13 @@ const style = StyleSheet.create({
     color: 'grey',
     fontWeight: 'bold',
   },
+  videoContainer:{
+    backgroundColor:'#FFFF',
+    width:'95%',
+    alignItems:'center',
+    paddingTop:10,
+    height:231,
+    borderRadius:15,
+    marginTop:30
+  }
 });
