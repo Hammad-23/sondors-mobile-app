@@ -15,7 +15,9 @@ export default function Input(props) {
       width:'100%',
       borderRadius:15,
       height:58
-    }} />
+    }} 
+    placeholderTextColor="#cecece"
+    />
 
 
    </>

@@ -30,7 +30,7 @@ export default function LogIn({navigation}) {
             </View>
             <View style={style.formSec}>
               <View style={style.inpContainer}>
-                <Input placeholder="    Email" />
+                <Input placeholder="    Email"  />
               </View>
 
               <View style={style.inpContainer}>

@@ -47,7 +47,8 @@ export default function SignUp({navigation}) {
             </View>
 
             <View style={style.inpContainer}>
-              <Input placeholder="    Sex" />
+              {/* <Input placeholder="    Sex" /> */}
+              <Select />
             </View>
 
             <View style={style.inpContainer}>
