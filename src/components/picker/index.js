@@ -5,7 +5,7 @@ import {StyleSheet,View,Text} from 'react-native';
 export default function Select() {
   const [selectedLanguage, setSelectedLanguage] = useState();
   return (
-    <>
+    <View style={{backgroundColor:"#FFF", width:"100%",paddingVertical:5, borderRadius:15}} >
     
       <Picker style={style.selectStyle}
         selectedValue={selectedLanguage}
@@ -16,16 +16,17 @@ export default function Select() {
         <Picker.Item style={{fontSize:14}} label="JavaScript" value="js" />
       </Picker>
      
-    </>
+    </View>
   );
 }
 
 const style = StyleSheet.create({
     selectStyle:{
-        backgroundColor:'#FFFF',
+        backgroundColor:'#FFF',
+        width:"97%",
+        alignSelf:"center",
         color:'gray',
         borderRadius:15,
-        height:58,
         
     }
 })

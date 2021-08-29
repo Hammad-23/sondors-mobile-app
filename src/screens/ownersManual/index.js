@@ -6,13 +6,14 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
+  SafeAreaView,
 } from 'react-native';
 import Header from '../../components/header';
 import Manual from '../../../assets/images/manual.png';
 
 export default function OwnersManual() {
   return (
-    <>
+    <SafeAreaView style={{flex:1}}>
       <Header title="owners" />
 
       <View style={style.contentContainer}>
@@ -25,7 +26,7 @@ export default function OwnersManual() {
           <Text style={style.manualtxt}>Download PDF of Owners Manual</Text>
         </View>
       </View>
-    </>
+    </SafeAreaView>
   );
 }
 const style = StyleSheet.create({

@@ -21,19 +21,18 @@ import TroubleShooting from './src/screens/troubleshooting';
 import OwnersManual from './src/screens/ownersManual';
 import {Provider} from 'react-redux';
 import Feather from 'react-native-vector-icons/Feather';
-
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  createStackNavigator,
-  HeaderStyleInterpolators,
-} from '@react-navigation/stack';
+import {createStackNavigator,} from '@react-navigation/stack';
+import DrawerScreens from './src/navigations/DrawerScreens';
+
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator
+      <Stack.Navigator
           screenOptions={{headerShown: false}}
           initialRouteName="Welcome">
           <Stack.Screen name="Welcome" component={Welcome} />

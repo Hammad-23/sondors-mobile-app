@@ -1,5 +1,7 @@
 PODS:
   - boost-for-react-native (1.63.0)
+  - BVLinearGradient (2.5.6):
+    - React
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.64.0)
@@ -328,10 +330,14 @@ PODS:
     - React-perflogger (= 0.64.0)
   - RNCAsyncStorage (1.15.4):
     - React-Core
+  - RNCCheckbox (0.5.8):
+    - React-Core
   - RNCClipboard (1.5.1):
     - React-Core
   - RNCMaskedView (0.1.11):
     - React
+  - RNCPicker (1.16.7):
+    - React-Core
   - RNGestureHandler (1.10.3):
     - React-Core
   - RNReanimated (2.1.0):
@@ -372,6 +378,7 @@ PODS:
     - Yoga (~> 1.14)
 
 DEPENDENCIES:
+  - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
@@ -423,8 +430,10 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCCheckbox (from `../node_modules/@react-native-community/checkbox`)"
   - "RNCClipboard (from `../node_modules/@react-native-community/clipboard`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -449,6 +458,8 @@ SPEC REPOS:
     - YogaKit
 
 EXTERNAL SOURCES:
+  BVLinearGradient:
+    :path: "../node_modules/react-native-linear-gradient"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   FBLazyVector:
@@ -509,10 +520,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNCCheckbox:
+    :path: "../node_modules/@react-native-community/checkbox"
   RNCClipboard:
     :path: "../node_modules/@react-native-community/clipboard"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
+  RNCPicker:
+    :path: "../node_modules/@react-native-picker/picker"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
@@ -526,6 +541,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   FBLazyVector: 49cbe4b43e445b06bf29199b6ad2057649e4c8f5
@@ -568,8 +584,10 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: cad74a1eaa53ee6e7a3620231939d8fe2c6afcf0
   ReactCommon: cfe2b7fd20e0dbd2d1185cd7d8f99633fbc5ff05
   RNCAsyncStorage: f47a7e8f927f7c9da947491fc55752eb9ce17f2d
+  RNCCheckbox: 6bd119c26c6eb8264a29d59ff66cb70a14de3349
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
+  RNCPicker: 9865e85857650bbc553c660acc580ff86abd056a
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: b8c8004b43446e3c2709fe64b2b41072f87428ad
   RNScreens: bd1523c3bde7069b8e958e5a16e1fc7722ad0bdd
@@ -577,6 +595,6 @@ SPEC CHECKSUMS:
   Yoga: 8c8436d4171c87504c648ae23b1d81242bdf3bbf
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 58d5e34654278f078a7989d5b9b981a4be4047f1
+PODFILE CHECKSUM: b1d6bbf56768a93b2152415e22d68c5598d2792b
 
 COCOAPODS: 1.10.1
