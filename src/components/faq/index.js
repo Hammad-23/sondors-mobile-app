@@ -1,21 +1,61 @@
-import React from 'react';
-import {View,Text} from 'react-native';
-import {FAQ} from 'react-native-faq'
+import React, { Component } from 'react';
+import {View,Text,StyleSheet} from 'react-native';
+import Accordion from 'react-native-collapsible/Accordion';
 
+const SECTIONS = [
+  {
+    title: 'First',
+    content: 'Lorem ipsum...',
+  },
+  {
+    title: 'Second',
+    content: 'Lorem ipsum...',
+  },
+];
 
-export default function FaQ(){
-    const questions = [{
-        question: "How can I help you?",
-             reply: "You have several options to choose:",
-            //  bullets: bullets,
-             actionText: "I'm ready to help!",
-            //  onClick: action_example
-      }]
-    return(
-        <>
+export default class AccordionView extends Component {
+  state = {
+    activeSections: [],
+  };
 
-            <FAQ questions={questions} />
+  _renderSectionTitle = (section) => {
+    return (
+      <View >
+        <Text>{section.content}</Text>
+      </View>
+    );
+  };
 
-        </>
-    )
+  _renderHeader = (section) => {
+    return (
+      <View >
+        <Text >{section.title}</Text>
+      </View>
+    );
+  };
+
+  _renderContent = (section) => {
+    return (
+      <View>
+        <Text>{section.content}</Text>
+      </View>
+    );
+  };
+
+  _updateSections = (activeSections) => {
+    this.setState({ activeSections });
+  };
+
+  render() {
+    return (
+      <Accordion
+        sections={SECTIONS}
+        activeSections={this.state.activeSections}
+        renderSectionTitle={this._renderSectionTitle}
+        renderHeader={this._renderHeader}
+        renderContent={this._renderContent}
+        onChange={this._updateSections}
+      />
+    );
+  }
 }

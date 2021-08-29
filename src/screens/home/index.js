@@ -33,7 +33,9 @@ export default function Home({navigation,route}) {
               src={Assembly}
               title="Assembly Guide"
             />
-            <Card
+            <Card  onPress={() => {
+                navigation.navigate('Operating Smart Step');
+              }}
               height={52}
               width={52}
               src={Administration}
