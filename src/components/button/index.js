@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, TouchableOpacity, Text} from 'react-native';
+import { Colors } from '../../../utils/Constants';
 
 export default function CustomButton(props) {
   return (
@@ -11,7 +12,7 @@ export default function CustomButton(props) {
 
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: '#C92323',
+    backgroundColor: Colors.primaryColor,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -21,5 +22,6 @@ const styles = StyleSheet.create({
   txt: {
     color: 'white',
     fontSize: 20,
+    fontWeight:"bold"
   },
 });

@@ -31,7 +31,7 @@ export default function Welcome({navigation}) {
             onPress={() => {
               navigation.navigate('Login');
             }}
-            title="LOGIN"
+            title="Login"
           />
         </View>
 
@@ -40,7 +40,7 @@ export default function Welcome({navigation}) {
             onPress={() => {
               navigation.navigate('Signup');
             }}
-            title="SIGN UP"
+            title="Sign Up"
           />
         </View>
       </View>

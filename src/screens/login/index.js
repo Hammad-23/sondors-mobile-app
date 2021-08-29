@@ -15,33 +15,35 @@ import Input from '../../components/input';
 
 export default function LogIn({navigation}) {
   return (
-    <SafeAreaView style={{flex:1}}>
+    <SafeAreaView style={{flex: 1}}>
       <ScrollView contentContainerStyle={style.screenContainer}>
         <View style={style.ContentContainer}>
           <View style={style.logoContainer}>
-          <Image style={style.logoStyle} source={require('../../../assets/images/logo.png')} />
+            <Image
+              style={style.logoStyle}
+              source={require('../../../assets/images/logo.png')}
+            />
           </View>
-
-          <View style={style.signUpheading}>
-            <Text style={style.signupTxt}>LOG IN</Text>
-          </View>
-
-          <View style={style.formSec}>
-            <View style={style.inpContainer}>
-              <Input placeholder="    Email" />
+          <View style={{marginTop: '30%'}}>
+            <View style={style.signUpheading}>
+              <Text style={style.signupTxt}>LOGIN</Text>
             </View>
+            <View style={style.formSec}>
+              <View style={style.inpContainer}>
+                <Input placeholder="    Email" />
+              </View>
 
-            <View style={style.inpContainer}>
-              <Input secureTextEntry={true} placeholder="    Password" />
-            </View>
-
-            <View style={style.inpContainer}>
-              <CustomButton
-                onPress={() => {
-                  navigation.navigate('home');
-                }}
-                title="LOG IN"
-              />
+              <View style={style.inpContainer}>
+                <Input secureTextEntry={true} placeholder="    Password" />
+              </View>
+              <View style={style.inpContainer}>
+                <CustomButton
+                  onPress={() => {
+                    navigation.navigate('home');
+                  }}
+                  title="Login"
+                />
+              </View>
             </View>
           </View>
         </View>
@@ -55,6 +57,7 @@ const style = StyleSheet.create({
     height: '100%',
     width: '85%',
     marginTop: 20,
+    flex: 1,
   },
   screenContainer: {
     height: '100%',
@@ -70,6 +73,7 @@ const style = StyleSheet.create({
   logoContainer: {},
   signUpheading: {
     marginTop: 30,
+    paddingHorizontal: 10,
   },
   signupTxt: {
     fontSize: 25,
@@ -79,11 +83,11 @@ const style = StyleSheet.create({
     marginTop: 20,
   },
   formSec: {
-    height: '70%',
+    marginTop: 30,
     justifyContent: 'center',
   },
-  logoStyle:{
-    width:153,
-    height:25
-  }
+  logoStyle: {
+    width: 153,
+    height: 25,
+  },
 });

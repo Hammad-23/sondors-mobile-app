@@ -87,6 +87,7 @@ const style = StyleSheet.create({
   screenContainer: {
     height: '100%',
     alignItems: 'center',
+    flex:1
   },
   logo: {
     fontSize: 30,

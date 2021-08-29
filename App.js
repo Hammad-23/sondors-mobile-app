@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React,{useEffect} from 'react';
 
 import {Image} from 'react-native';
 import BottomTabs from './src/navigations/bottomTab';
@@ -25,10 +25,14 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator,} from '@react-navigation/stack';
 import DrawerScreens from './src/navigations/DrawerScreens';
+import SplashScreen from 'react-native-splash-screen'
 
 const Stack = createStackNavigator();
 
 export default function App() {
+  useEffect(()=>{
+    SplashScreen.hide()
+  },[])
   return (
     <Provider store={store}>
       <NavigationContainer>
