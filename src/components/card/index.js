@@ -16,7 +16,6 @@ export default function Card(props){
 
 
 
-
         </TouchableOpacity>
 
 
@@ -28,14 +27,16 @@ export default function Card(props){
 
 const style = StyleSheet.create({
     CardImg:{
-        height:52.58,
-        width:63
+        // height:52.58,
+        // width:63
     },
     card:{
         backgroundColor:"#FFFF",
-        height:170,
+        // height:170,
+        paddingVertical:35,
+        paddingHorizontal:15,
         borderRadius:12,
-        width:140,
+        width:"45%",
         justifyContent:'center',
         alignItems:'center'
     }
