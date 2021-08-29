@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {Text, View, Image, StyleSheet} from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -7,9 +7,9 @@ import Feather from 'react-native-vector-icons/Feather';
 
 export default function Header(props) {
   const [item, setItem] = useState(true);
-//   if(props.title===""){
-//       setItem(true)
-//   }
+useEffect(() => {
+ console.log("props__ ",props.route);
+}, )
   return (
     <>
       <View style={style.headerContainer}>
@@ -18,14 +18,14 @@ export default function Header(props) {
         </View>
 
         <View>
-          {item ? (
+          {props.route=="home"?(
             <Image
               style={style.logoStyle}
               source={require('../../../assets/images/logo.png')}
             />
           ) : (
             <Text style={{fontSize: 18, fontWeight: 'bold'}}>
-              Owners Manual
+              {props.route}
             </Text>
           )}
         </View>

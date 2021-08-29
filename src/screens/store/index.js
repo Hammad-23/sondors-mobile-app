@@ -12,10 +12,10 @@ import Manual from '../../../assets/images/manual.png';
 import Tshirt from '../../../assets/images/tshirt.png';
 import Bike from '../../../assets/images/bike.png';
 
-export default function SandorsStore() {
+export default function SandorsStore({navigation,route}) {
   return (
     <SafeAreaView style={{flex:1}}>
-      <Header />
+      <Header route={route.name} />
       <ScrollView contentContainerStyle={style.container}>
         <View style={style.contentWrapper}>
           {/* <View style={style.heading}>

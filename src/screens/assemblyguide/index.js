@@ -10,7 +10,7 @@ import Store from '../../../assets/images/store.png';
 import Manual from '../../../assets/images/manual.png';
 import VideoCards from '../../components/video';
 
-export default function AssemblyGuide() {
+export default function AssemblyGuide({navigation,route}) {
   let videos=[{
 
   },{
@@ -22,7 +22,7 @@ export default function AssemblyGuide() {
   }]
   return (
     <SafeAreaView style={{flex:1}} >
-      <Header />
+      <Header route={route.name} />
       <ScrollView contentContainerStyle={style.container}>
         <View style={style.contentWrapper}>{/* <VideoCards/> */}
         <View style={{justifyContent:"center", alignItems:"center", flex:1}} >

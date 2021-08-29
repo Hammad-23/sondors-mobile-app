@@ -11,11 +11,10 @@ import {
 import Header from '../../components/header';
 import Manual from '../../../assets/images/manual.png';
 
-export default function OwnersManual() {
+export default function OwnersManual({navigation,route}) {
   return (
     <SafeAreaView style={{flex:1}}>
-      <Header title="owners" />
-
+      <Header route={route.name} />
       <View style={style.contentContainer}>
         <View style={style.download}>
           <TouchableOpacity style={style.pdfImgContainer}>

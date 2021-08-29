@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {View, Text, ScrollView, Image, StyleSheet, SafeAreaView} from 'react-native';
 import Header from '../../components/header';
 import Card from '../../components/card';
@@ -9,10 +9,13 @@ import Tech from '../../../assets/images/tech.png';
 import Store from '../../../assets/images/store.png';
 import Manual from '../../../assets/images/manual.png';
 
-export default function Home({navigation}) {
+export default function Home({navigation,route}) {
+  useEffect(() => {
+   console.log("My Haome -->> ",route.name );
+  }, )
   return (
     <SafeAreaView style={{flex:1}} >
-      <Header />
+      <Header route={route.name} />
       <ScrollView contentContainerStyle={style.container}>
         <View style={style.contentWrapper}>
           <View style={style.heading}>
@@ -23,7 +26,7 @@ export default function Home({navigation}) {
           <View style={style.firstTwoCards}>
             <Card
               onPress={() => {
-                navigation.navigate('assembly');
+                navigation.navigate('Assembly Guide');
               }}
               height={52.58}
               width={63}
@@ -41,7 +44,7 @@ export default function Home({navigation}) {
           <View style={style.firstTwoCards}>
             <Card
               onPress={() => {
-                navigation.navigate('troubleshooting');
+                navigation.navigate('Troubleshooting');
               }}
               height={57.02}
               width={65}
@@ -62,11 +65,11 @@ export default function Home({navigation}) {
               width={62}
               src={Store}
               onPress={() => {
-                navigation.navigate('Store');
+                navigation.navigate('Sondors Store');
               }}
               title="SONDORS store"
             />
-            <Card onPress={()=>{navigation.navigate('Ownersmanual')}}
+            <Card onPress={()=>{navigation.navigate('Owners Manual')}}
               height={61.84}
               width={56}
               src={Manual}
