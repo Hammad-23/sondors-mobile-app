@@ -48,11 +48,11 @@ export default function SignUp({navigation}) {
 
             <View style={style.inpContainer}>
               {/* <Input placeholder="    Sex" /> */}
-              <Select />
+              <Select label1="Male" label2="Female" />
             </View>
 
             <View style={style.inpContainer}>
-              <Select />
+              <Select label1="State" label2="JavaScript" />
             </View>
 
             <View style={style.inpContainer}>

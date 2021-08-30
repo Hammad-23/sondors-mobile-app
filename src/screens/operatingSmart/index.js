@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView, Image, StyleSheet,SafeAreaView} from 'react-native';
+import {View, Text, ScrollView, Image, StyleSheet,SafeAreaView,FlatList} from 'react-native';
 import Header from '../../components/header';
 import Card from '../../components/card';
 import Assembly from '../../../assets/images/assemblyPic.png';
@@ -9,30 +9,60 @@ import Tech from '../../../assets/images/tech.png';
 import Store from '../../../assets/images/store.png';
 import Manual from '../../../assets/images/manual.png';
 import Video from 'react-native-video';
-
+import VideoPlayer from 'react-native-video-player';
 export default function OperatingSmartStep({navigation,route}) {
-  let videos=[{
-
-  },{
-
-  },{
-
-  },{
-
-  }]
+  data=[
+    {
+      id:1,
+      name:'https://www.youtube.com/watch?v=WSJHAsnot54',
+    },
+    {
+      id:1,
+      name:'https://www.youtube.com/watch?v=WSJHAsnot54',
+    },
+    {
+      id:1,
+      name:'https://www.youtube.com/watch?v=WSJHAsnot54',
+    },
+   
+  ]
   return (
     <SafeAreaView style={{flex:1}} >
       <Header route={route.name} />
       <ScrollView contentContainerStyle={style.container}>
         <View style={style.contentWrapper}>{/* <VideoCards/> */}
         <View style={{justifyContent:"center", alignItems:"center", flex:1,width:"95%"}} >
-          {videos.map((item)=>{
-            return(
+          
+          <FlatList data={data}
+          keyExtractor={(item,index)=>`${index}`}
+           renderItem={({item,index})=>{
+             return(
               <View style={style.videoContainer}>
+
+                <VideoPlayer video={require('../../../assets/videos/video2.mp4')}
+                 autoplay={false}
+                 defaultMuted={true}
+                thumbnail={require('../../../assets/images/cycle2.png')}
+                videoWidth={250}
+                videoHeight={250}
+                // style={{paddingHorizontal:50}}
+                />
+
+               
+
+<Text style={{alignSelf:"flex-start", fontWeight:'bold',paddingHorizontal:10,marginTop:10,fontSize:18,paddingBottom:20,textAlign:"left"}}>SONDORS how to install bike pedals</Text>
+              </View>
+
+             )
+           }} />
+
+
+
+              
             
-              <Video
+            {/* <Video
           paused={true}
-          source={require('../../../assets/videos/video1.mp4')}
+          source={require('../../../assets/videos/video2.mp4')}
           resizeMode="contain"
           style={{
             height: 200,
@@ -47,15 +77,10 @@ export default function OperatingSmartStep({navigation,route}) {
           onEnd={() => alert('Video Ended')}
           controls={true}
           // collapsable={true}
-        />
-              <Text style={{fontWeight:'bold',marginTop:10}}>SONDORS how to install bike pedals</Text>
-              </View>
-            )
-          })
+        /> */}
+              
          
-
-          }
-       
+          <View style={{marginTop:20}} />
         </View>
         </View>
       </ScrollView>

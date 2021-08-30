@@ -20,6 +20,7 @@ import AssemblyGuide from './src/screens/assemblyguide';
 import TroubleShooting from './src/screens/troubleshooting';
 import OwnersManual from './src/screens/ownersManual';
 import OperatingSmartStep from './src/screens/operatingSmart'
+import LiveTechSuppport from './src/screens/liveTechSupport';
 import {Provider} from 'react-redux';
 import Feather from 'react-native-vector-icons/Feather';
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -49,6 +50,7 @@ export default function App() {
           <Stack.Screen name="Troubleshooting" component={TroubleShooting} />
           <Stack.Screen name="Owners Manual" component={OwnersManual} />
           <Stack.Screen name="Operating Smart Step" component={OperatingSmartStep} />
+          <Stack.Screen name="Live Tech Support" component={LiveTechSuppport} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

@@ -53,7 +53,7 @@ export default function Home({navigation,route}) {
               src={Troubleshooting}
               title="Troubleshooting"
             />
-            <Card
+            <Card onPress={()=>{navigation.navigate('Live Tech Support')}}
               height={66}
               width={66.08}
               src={Tech}

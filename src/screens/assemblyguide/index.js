@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text, ScrollView, Image, StyleSheet,SafeAreaView} from 'react-native';
+import {View, Text, ScrollView, Image, StyleSheet,SafeAreaView,FlatList} from 'react-native';
 import Header from '../../components/header';
-import Card from '../../components/card';
+// import Card from '../../components/card';
 import Assembly from '../../../assets/images/assemblyPic.png';
 import Administration from '../../../assets/images/administration.png';
 import Troubleshooting from '../../../assets/images/trouble.png';
@@ -10,24 +10,71 @@ import Store from '../../../assets/images/store.png';
 import Manual from '../../../assets/images/manual.png';
 import VideoCards from '../../components/video';
 import Video from 'react-native-video';
+import VideoPlayer from 'react-native-video-player';
+// import VideoLib from '../../components/newVideo';
+
 
 export default function AssemblyGuide({navigation,route}) {
-  let videos=[{
+  // let videos=[{
 
-  },{
+  // },{
 
-  },{}]
+  // },{}]
+  data=[
+    {
+      id:1,
+      name:'https://www.youtube.com/watch?v=WSJHAsnot54',
+    },
+    // {
+    //   id:1,
+    //   name:'https://www.youtube.com/watch?v=WSJHAsnot54',
+    // },
+    // {
+    //   id:1,
+    //   name:'https://www.youtube.com/watch?v=WSJHAsnot54',
+    // },
+
+    
+
+  ]
   return (
     <SafeAreaView style={{flex:1}} >
       <Header route={route.name} />
       <ScrollView contentContainerStyle={style.container}>
         <View style={style.contentWrapper}>{/* <VideoCards/> */}
         <View style={{justifyContent:"center", alignItems:"center", flex:1,width:"95%"}} >
-          {videos.map((item)=>{
-            return(
+          
+          {/* <FlatList data={data}
+          keyExtractor={(item,index)=>`${index}`}
+           renderItem={({item,index})=>{
+             return( */}
               <View style={style.videoContainer}>
             
-            <Video
+                <VideoPlayer video={require('../../../assets/videos/video2.mp4')}
+                 autoplay={false}
+                 defaultMuted={true}
+                thumbnail={require('../../../assets/images/cycle2.png')}
+                resizeMode={"contain"}
+                videoWidth={250}
+                videoHeight={250}
+               
+                // style={{paddingHorizontal:50}}
+                />
+
+               
+
+<Text style={{alignSelf:"flex-start", fontWeight:'bold',paddingHorizontal:10,marginTop:10,fontSize:18,paddingBottom:20,textAlign:"left"}}>SONDORS how to install bike pedals</Text>
+
+            </View>
+
+              {/* )
+            }} /> */}
+
+
+
+              
+            
+            {/* <Video
           paused={true}
           source={require('../../../assets/videos/video2.mp4')}
           resizeMode="contain"
@@ -44,12 +91,9 @@ export default function AssemblyGuide({navigation,route}) {
           onEnd={() => alert('Video Ended')}
           controls={true}
           // collapsable={true}
-        />
-              <Text style={{alignSelf:"flex-start", fontWeight:'bold',paddingHorizontal:10,marginTop:10,fontSize:18,paddingBottom:20,textAlign:"left"}}>SONDORS how to install bike pedals</Text>
-              </View>
-            )
-          })
-          }
+        /> */}
+              
+         
           <View style={{marginTop:20}} />
         </View>
         </View>
@@ -90,14 +134,15 @@ const style = StyleSheet.create({
     alignItems:'center',
     paddingTop:10,
     width:"95%",
-    // height:231,
+    height:300,
     borderRadius:15,
     marginTop:30,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.5,
     shadowRadius: 2,  
-    elevation: 3
+    elevation: 3,
+    
 
   }
 });
