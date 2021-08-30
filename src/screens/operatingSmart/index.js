@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView, Image, StyleSheet,SafeAreaView,FlatList} from 'react-native';
+import {View, Text, ScrollView,Dimensions, Image, StyleSheet,SafeAreaView,FlatList} from 'react-native';
 import Header from '../../components/header';
 import Card from '../../components/card';
 import Assembly from '../../../assets/images/assemblyPic.png';
@@ -10,6 +10,9 @@ import Store from '../../../assets/images/store.png';
 import Manual from '../../../assets/images/manual.png';
 import Video from 'react-native-video';
 import VideoPlayer from 'react-native-video-player';
+
+const WIDTH = Dimensions.get('window').width
+
 export default function OperatingSmartStep({navigation,route}) {
   data=[
     {
@@ -31,35 +34,53 @@ export default function OperatingSmartStep({navigation,route}) {
       <Header route={route.name} />
       <ScrollView contentContainerStyle={style.container}>
         <View style={style.contentWrapper}>{/* <VideoCards/> */}
-        <View style={{justifyContent:"center", alignItems:"center", flex:1,width:"95%"}} >
-          
-          <FlatList data={data}
-          keyExtractor={(item,index)=>`${index}`}
-           renderItem={({item,index})=>{
+        <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              flex: 1,
+              width: WIDTH,
+            }}>
+            <FlatList data={data}
+            keyExtractor={(item,index)=>`${index}`}
+            ListFooterComponent={({})=>{
+              return<View style={{marginTop:20}} />
+            }}
+            renderItem={({item,index})=>{
              return(
-              <View style={style.videoContainer}>
-
-                <VideoPlayer video={require('../../../assets/videos/video2.mp4')}
-                 autoplay={false}
-                 defaultMuted={true}
+            <View style={style.videoContainer}>
+              <VideoPlayer
+                video={require('../../../assets/videos/video2.mp4')}
+                autoplay={false}
+                defaultMuted={true}
+                
                 thumbnail={require('../../../assets/images/cycle2.png')}
-                videoWidth={250}
-                videoHeight={250}
-                // style={{paddingHorizontal:50}}
-                />
+                resizeMode={'contain'}
+                fullScreenOnLongPress={true}
+                videoWidth={WIDTH}
+                videoHeight={220}
+                disableControlsAutoHide={true}
+              customStyles={{videoWrapper:{width:WIDTH,},seekBarFullWidth:WIDTH*0.8}}
+                style={{width:WIDTH,minWidth:WIDTH,maxWidth:WIDTH}}
+              />
 
-               
+              <Text
+                style={{
+                  alignSelf: 'flex-start',
+                  fontWeight: 'bold',
+                  paddingHorizontal: 10,
+                  marginTop: 10,
+                  fontSize: 18,
+                  paddingBottom: 20,
+                  textAlign: 'left',
+                }}>
+                SONDORS how to install bike pedals
+              </Text>
+            </View>
 
-<Text style={{alignSelf:"flex-start", fontWeight:'bold',paddingHorizontal:10,marginTop:10,fontSize:18,paddingBottom:20,textAlign:"left"}}>SONDORS how to install bike pedals</Text>
-              </View>
+            )
+            }} /> 
 
-             )
-           }} />
-
-
-
-              
-            
             {/* <Video
           paused={true}
           source={require('../../../assets/videos/video2.mp4')}
@@ -78,10 +99,9 @@ export default function OperatingSmartStep({navigation,route}) {
           controls={true}
           // collapsable={true}
         /> */}
-              
-         
-          <View style={{marginTop:20}} />
-        </View>
+
+            <View style={{marginTop: 20}} />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -114,20 +134,20 @@ const style = StyleSheet.create({
     fontWeight: 'bold',
   },
   videoContainer:{
-    backgroundColor:'#FFFF',
-    paddingHorizontal:10,
-    paddingVertical:20,
-    alignItems:'center',
-    paddingTop:10,
-    width:"95%",
-    // height:231,
-    borderRadius:15,
-    marginTop:30,
+    backgroundColor: '#FFFF',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    alignItems: 'center',
+    paddingTop: 10,
+    width: WIDTH*0.9,
+    // height: 300,
+    borderRadius: 15,
+    marginTop: 20,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
+    shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.5,
-    shadowRadius: 2,  
-    elevation: 3
+    shadowRadius: 2,
+    elevation: 3,
 
   }
 });

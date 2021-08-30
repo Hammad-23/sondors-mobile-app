@@ -8,13 +8,14 @@ import {
   Image,
   TextInput,
   SafeAreaView,
+  TouchableOpacity
 } from 'react-native';
 
 import CustomButton from '../../components/button';
 import Input from '../../components/input';
 import Select from '../../components/picker';
 import CheckBoxx from '../../components/checkbox';
-
+import { Colors } from '../../../utils/Constants';
 export default function SignUp({navigation}) {
   const [isSelected, setSelection] = useState(false);
 
@@ -63,7 +64,11 @@ export default function SignUp({navigation}) {
               <CheckBoxx />
               <Text>Agree to the terms of service</Text>
             </View>
-
+            <View>
+                <TouchableOpacity onPress={()=>navigation.navigate('Login')} >
+                  <Text style={{padding:10, color:Colors.primaryColor}} >Already have an account ?</Text>
+                </TouchableOpacity>
+              </View>
             <View style={style.inpContainer}>
               <CustomButton
                 onPress={() => {

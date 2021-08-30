@@ -8,7 +8,9 @@ import {
   Image,
   TextInput,
   SafeAreaView,
+  TouchableOpacity,
 } from 'react-native';
+import { Colors } from '../../../utils/Constants';
 
 import CustomButton from '../../components/button';
 import Input from '../../components/input';
@@ -34,7 +36,12 @@ export default function LogIn({navigation}) {
               </View>
 
               <View style={style.inpContainer}>
-                <Input secureTextEntry={true} placeholder="    Password" />
+                <Input secureTextEntry={true} placeholder=" Password" />
+              </View>
+              <View>
+                <TouchableOpacity onPress={()=>navigation.navigate('Signup')} >
+                  <Text style={{padding:10, color:Colors.primaryColor}} >Don't have an account ?</Text>
+                </TouchableOpacity>
               </View>
               <View style={style.inpContainer}>
                 <CustomButton

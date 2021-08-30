@@ -7,12 +7,14 @@ import {
   StyleSheet,
   SafeAreaView,
   FlatList,
+  Dimensions,
 } from 'react-native';
 import Header from '../../components/header';
 // import Card from '../../components/card';
 import VideoPlayer from 'react-native-video-player';
 // import VideoLib from '../../components/newVideo';
 
+const WIDTH = Dimensions.get('window').width
 export default function AssemblyGuide({navigation, route}) {
   // let videos=[{
 
@@ -44,26 +46,29 @@ export default function AssemblyGuide({navigation, route}) {
               justifyContent: 'center',
               alignItems: 'center',
               flex: 1,
-              width: '95%',
+              width: WIDTH,
             }}>
             <FlatList data={data}
-          keyExtractor={(item,index)=>`${index}`}
-           renderItem={({item,index})=>{
+            keyExtractor={(item,index)=>`${index}`}
+            ListFooterComponent={({})=>{
+              return<View style={{marginTop:20}} />
+            }}
+            renderItem={({item,index})=>{
              return(
             <View style={style.videoContainer}>
               <VideoPlayer
                 video={require('../../../assets/videos/video2.mp4')}
                 autoplay={false}
                 defaultMuted={true}
+                
                 thumbnail={require('../../../assets/images/cycle2.png')}
                 resizeMode={'contain'}
-                videoWidth={250}
-                videoHeight={250}
-                // controlsTimeout	={99999}
+                fullScreenOnLongPress={true}
+                videoWidth={WIDTH}
+                videoHeight={220}
                 disableControlsAutoHide={true}
-                
-
-                // style={{paddingHorizontal:50}}
+              customStyles={{videoWrapper:{width:WIDTH,},seekBarFullWidth:WIDTH*0.8}}
+                style={{width:WIDTH,minWidth:WIDTH,maxWidth:WIDTH}}
               />
 
               <Text
@@ -138,13 +143,13 @@ const style = StyleSheet.create({
   videoContainer: {
     backgroundColor: '#FFFF',
     paddingHorizontal: 10,
-    paddingVertical: 20,
+    paddingVertical: 10,
     alignItems: 'center',
     paddingTop: 10,
-    width: '95%',
-    height: 300,
+    width: WIDTH*0.9,
+    // height: 300,
     borderRadius: 15,
-    marginTop: 30,
+    marginTop: 20,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.5,
