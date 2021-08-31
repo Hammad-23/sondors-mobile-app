@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "479946121945",
+    "project_id": "sondors",
+    "storage_bucket": "sondors.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479946121945:android:432499ecc0ea5b245814c8",
+        "android_client_info": {
+          "package_name": "com.factual.sondors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "479946121945-q1lqverkipsdkl2o7rrpo996gb5senib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXDPFSP8Q_saNrtiH357oXmf8lP5Hw7C4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479946121945-q1lqverkipsdkl2o7rrpo996gb5senib.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
