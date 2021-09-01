@@ -13,6 +13,7 @@ import Header from '../../components/header';
 // import Card from '../../components/card';
 import VideoPlayer from 'react-native-video-player';
 // import VideoLib from '../../components/newVideo';
+import { WebView } from 'react-native-webview';
 
 const WIDTH = Dimensions.get('window').width
 export default function AssemblyGuide({navigation, route}) {
@@ -60,28 +61,26 @@ export default function AssemblyGuide({navigation, route}) {
              return(
             <View style={style.videoContainer}>
               <VideoPlayer
-                video={{uri:'https://vod-progressive.akamaized.net/exp=1630501667~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F2393%2F23%2F586969097%2F2769919064.mp4~hmac=be8d03c8c9081c56102f939de7b729518328d46d9c728ad490d165731acb21ee/vimeo-prod-skyfire-std-us/01/2393/23/586969097/2769919064.mp4?filename=SONDORS+Unboxing+%7C+With+Storm+Sondors.mp4'}}
+                video={require('../../../assets/videos/videoplayback.mp4')}
                 autoplay={false}
                 defaultMuted={true}
-                
                 thumbnail={require('../../../assets/images/thumbnail.png')}
                 resizeMode={'contain'}
                 fullScreenOnLongPress={true}
                 videoWidth={WIDTH}
                 videoHeight={210}
                 disableControlsAutoHide={true}
-              customStyles={{videoWrapper:{width:300,},seekBarFullWidth:WIDTH*0.8}}
-                style={{width:300,minWidth:300,maxWidth:300}}
+                customStyles={{videoWrapper:{width:300,},seekBarFullWidth:WIDTH*0.8}}
+                style={{width:WIDTH,minWidth:300,maxWidth:300,}}
               />
-
+              {/* <WebView style={{flex:1, width:'100%'}} source={{ uri: 'https://reactnative.dev/' }} /> */}
               <Text
                 style={{
                   alignSelf: 'flex-start',
                   fontWeight: 'bold',
                   paddingHorizontal: 10,
                   marginTop: 10,
-                  fontSize: 
-                  14.98,
+                  fontSize: 14.98,
                   paddingBottom: 20,
                   textAlign: 'left',
                  
@@ -91,7 +90,7 @@ export default function AssemblyGuide({navigation, route}) {
             </View>
 
             )
-            }} /> 
+            }} />  
 
             {/* <Video
           paused={true}
@@ -112,8 +111,8 @@ export default function AssemblyGuide({navigation, route}) {
           // collapsable={true}
         /> */}
 
-            <View style={{marginTop: 20}} />
-          </View>
+           <View style={{marginTop: 20}} />
+          </View> 
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,ScrollView,StyleSheet,Image,TouchableOpacity} from 'react-native';
+import {View,Text,ScrollView,StyleSheet,Image,TouchableOpacity, SafeAreaView} from 'react-native';
 import Calendarr from '../../calender';
 import Header from '../../components/header';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -9,6 +9,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 export default function LiveTechSuppport({navigation,route}){
     return(
+      <SafeAreaView style={{flex:1}} >
         <ScrollView>
             <Header route={route.name} />
             <View style={style.main}>
@@ -40,6 +41,7 @@ export default function LiveTechSuppport({navigation,route}){
 
 
         </ScrollView>
+        </SafeAreaView>
     )
 }
 
