@@ -51,13 +51,15 @@ export default class AccordionView extends Component {
           alignItems: 'center',
           width: '100%',
           justifyContent: 'space-between',
+          backgroundColor:'#FDFDFD'
         }}>
         <Text
           style={{
-            fontSize: 20,
+            fontSize: 14,
             fontWeight: 'bold',
             paddingVertical: 10,
             paddingHorizontal: 10,
+            
           }}>
           Lorem ipsum dolor sit amet
         </Text>
@@ -69,7 +71,7 @@ export default class AccordionView extends Component {
   _renderContent = section => {
     return (
       <View>
-        <Text style={{fontSize:15, color:"grey",paddingHorizontal:5, marginTop:10,backgroundColor:"#ededed",borderColor:'#cecece',borderWidth:1,borderRadius:4}} >
+        <Text style={{fontSize:15, color:"grey",paddingHorizontal:5, marginTop:10,backgroundColor:"#FDFDFD",borderColor:'#cecece',borderWidth:1,borderRadius:4}} >
           Nulla Tempor Lorem ipsum is a text that is used to demonstrate the
           text Value in Apps. Nulla Tempor Lorem ipsum is a text that is used to demonstrate the
           text Value in Apps

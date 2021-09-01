@@ -13,6 +13,7 @@ export default function Card(props){
                 width:props.width,
             }} source={props.src} />
             <Text style={{fontWeight:'bold',marginTop:20}} >{props.title}</Text>
+            <Text style={{fontWeight:'bold'}}>{props.title2}</Text>
 
 
 

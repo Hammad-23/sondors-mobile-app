@@ -39,7 +39,8 @@ export default function Home({navigation,route}) {
               height={52}
               width={52}
               src={Administration}
-              title="Operating Smart Setup"
+              title="Operating"
+              title2="Smart Step"
             />
           </View>
 
@@ -75,7 +76,8 @@ export default function Home({navigation,route}) {
               height={61.84}
               width={56}
               src={Manual}
-              title="Owners Manual"
+              title="Owners"
+              title2="Manual"
             />
           </View>
         </View>

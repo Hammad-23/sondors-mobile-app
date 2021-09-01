@@ -51,7 +51,7 @@ export default function SignUp({navigation}) {
               {/* <Input placeholder="    Sex" /> */}
               <Select label1="Male" label2="Female" />
             </View>
-
+                         
             <View style={style.inpContainer}>
               <Select label1="State" label2="JavaScript" />
             </View>
@@ -59,22 +59,22 @@ export default function SignUp({navigation}) {
             <View style={style.inpContainer}>
               <Input placeholder="    Serial Number" />
             </View>
-
+                                         
             <View style={style.inpContainer2}>
               <CheckBoxx />
               <Text>Agree to the terms of service</Text>
             </View>
-            <View>
+            {/* <View>
                 <TouchableOpacity onPress={()=>navigation.navigate('Login')} >
                   <Text style={{padding:10, color:Colors.primaryColor}} >Already have an account ?</Text>
                 </TouchableOpacity>
-              </View>
+              </View> */}
             <View style={style.inpContainer}>
               <CustomButton
                 onPress={() => {
                   navigation.navigate('Login');
                 }}
-                title="SIGN UP"
+                title="Sign Up"
               />
             </View>
           </View>

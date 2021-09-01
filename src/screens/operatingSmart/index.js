@@ -18,14 +18,17 @@ export default function OperatingSmartStep({navigation,route}) {
     {
       id:1,
       name:'https://www.youtube.com/watch?v=WSJHAsnot54',
+      title:'SONDORS Smart Step: Powering On + Off'
     },
     {
       id:1,
       name:'https://www.youtube.com/watch?v=WSJHAsnot54',
+      title:'SONDORS Smart Step: Charging'
     },
     {
       id:1,
       name:'https://www.youtube.com/watch?v=WSJHAsnot54',
+      title:'SONDORS Smart Step: Folding Instructions'
     },
    
   ]
@@ -50,18 +53,19 @@ export default function OperatingSmartStep({navigation,route}) {
              return(
             <View style={style.videoContainer}>
               <VideoPlayer
-                video={require('../../../assets/videos/video2.mp4')}
+                video={{uri:'https://vod-progressive.akamaized.net/exp=1630501667~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F2393%2F23%2F586969097%2F2769919064.mp4~hmac=be8d03c8c9081c56102f939de7b729518328d46d9c728ad490d165731acb21ee/vimeo-prod-skyfire-std-us/01/2393/23/586969097/2769919064.mp4?filename=SONDORS+Unboxing+%7C+With+Storm+Sondors.mp4'}}
                 autoplay={false}
                 defaultMuted={true}
+                disableFullscreen={false}
                 
-                thumbnail={require('../../../assets/images/cycle2.png')}
+                thumbnail={require('../../../assets/images/thumbnail.png')}
                 resizeMode={'contain'}
                 fullScreenOnLongPress={true}
                 videoWidth={WIDTH}
-                videoHeight={220}
+                videoHeight={200}
                 disableControlsAutoHide={true}
-              customStyles={{videoWrapper:{width:WIDTH,},seekBarFullWidth:WIDTH*0.8}}
-                style={{width:WIDTH,minWidth:WIDTH,maxWidth:WIDTH}}
+                customStyles={{videoWrapper:{width:300,},seekBarFullWidth:WIDTH*0.8}}
+                style={{width:300,minWidth:300,maxWidth:300}}
               />
 
               <Text
@@ -70,11 +74,11 @@ export default function OperatingSmartStep({navigation,route}) {
                   fontWeight: 'bold',
                   paddingHorizontal: 10,
                   marginTop: 10,
-                  fontSize: 18,
+                  fontSize: 14.98,
                   paddingBottom: 20,
                   textAlign: 'left',
                 }}>
-                SONDORS how to install bike pedals
+                {item.title}
               </Text>
             </View>
 

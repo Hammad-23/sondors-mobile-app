@@ -6,7 +6,7 @@ export default function TroubleShooting({navigation,route}) {
   return(
     <>
     <Header route={route.name} />
-    <View style={{backgroundColor:"#FFF", borderRadius:10, width:"90%", alignSelf:"center"}} >
+    <View style={{backgroundColor:"#FFFFFF", borderRadius:10, width:"90%", alignSelf:"center"}} >
     <AccordionView />
     <View style={{marginTop:20}} />
     </View>

@@ -16,7 +16,7 @@ export default function Welcome({navigation}) {
         </View>
 
         <View style={{marginTop: 20}}>
-          <LinearGradient
+          <LinearGradient 
             style={style.gradContainer}
             colors={['#EE7474', '#FFFFFF00']}>
             <Image
@@ -74,9 +74,11 @@ const style = StyleSheet.create({
     width: 287,
     borderRadius: 200,
     marginTop: 50,
+   
   },
   gradContainer: {
     borderRadius: 300,
     height: 300,
+    opacity:0.4
   },
 });
