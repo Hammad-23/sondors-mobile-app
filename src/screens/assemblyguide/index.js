@@ -68,7 +68,7 @@ export default function AssemblyGuide({navigation, route}) {
                 resizeMode={'contain'}
                 fullScreenOnLongPress={true}
                 videoWidth={WIDTH}
-                videoHeight={200}
+                videoHeight={210}
                 disableControlsAutoHide={true}
               customStyles={{videoWrapper:{width:300,},seekBarFullWidth:WIDTH*0.8}}
                 style={{width:300,minWidth:300,maxWidth:300}}

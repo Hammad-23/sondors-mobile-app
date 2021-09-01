@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {View, Text, ScrollView, StyleSheet, Image} from 'react-native';
+import {View, Text, ScrollView, StyleSheet, Image,ImageBackground} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import CustomButton from '../../components/button';
 
@@ -16,17 +16,25 @@ export default function Welcome({navigation}) {
         </View>
 
         <View style={{marginTop: 20}}>
-          <LinearGradient 
+          {/* <LinearGradient 
             style={style.gradContainer}
             colors={['#EE7474', '#FFFFFF00']}>
             <Image
-              style={style.img}
+              style={style.img} 
               source={require('../../../assets/images/cycle3.png')}
             />
-          </LinearGradient>
+          </LinearGradient> */}
+
+          <ImageBackground resizeMode="contain" style={style.grad} source={require('../../../assets/images/grad.png')} >
+          <Image
+              style={style.img} 
+              source={require('../../../assets/images/cycle3.png')}
+            />
+            </ImageBackground>
+
         </View>
 
-        <View style={style.btnContainer}>
+        <View style={style.btnContainerStart}>
           <CustomButton
             onPress={() => {
               navigation.navigate('Login');
@@ -74,11 +82,20 @@ const style = StyleSheet.create({
     width: 287,
     borderRadius: 200,
     marginTop: 50,
+    
    
   },
   gradContainer: {
     borderRadius: 300,
     height: 300,
-    opacity:0.4
+    opacity:0.3
   },
+  grad:{
+    height:150,
+    width:300
+  },
+  btnContainerStart:{
+    marginTop:150,
+    width: '85%',
+  }
 });

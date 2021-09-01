@@ -18,7 +18,7 @@ import CheckBoxx from '../../components/checkbox';
 import { Colors } from '../../../utils/Constants';
 export default function SignUp({navigation}) {
   const [isSelected, setSelection] = useState(false);
-
+        
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView contentContainerStyle={style.screenContainer}>
@@ -31,7 +31,7 @@ export default function SignUp({navigation}) {
           </View>
 
           <View style={style.signUpheading}>
-            <Text style={style.signupTxt}>SIGN UP</Text>
+            <Text style={style.signupTxt}>Signup</Text>
           </View>
 
           <View style={style.formSec}>
@@ -50,8 +50,8 @@ export default function SignUp({navigation}) {
             <View style={style.inpContainer}>
               {/* <Input placeholder="    Sex" /> */}
               <Select label1="Male" label2="Female" />
-            </View>
-                         
+            </View> 
+    
             <View style={style.inpContainer}>
               <Select label1="State" label2="JavaScript" />
             </View>
@@ -59,7 +59,7 @@ export default function SignUp({navigation}) {
             <View style={style.inpContainer}>
               <Input placeholder="    Serial Number" />
             </View>
-                                         
+            
             <View style={style.inpContainer2}>
               <CheckBoxx />
               <Text>Agree to the terms of service</Text>
@@ -109,6 +109,8 @@ const style = StyleSheet.create({
   signupTxt: {
     fontSize: 25,
     fontWeight: 'bold',
+    fontFamily:"._proxima-nova-bold-597278273b8ca"
+    
   },
   inpContainer: {
     marginTop: 10,
@@ -117,6 +119,7 @@ const style = StyleSheet.create({
     marginTop: 10,
     flexDirection: 'row',
     alignItems: 'center',
+    
   },
   formSec: {
     marginTop: 40,

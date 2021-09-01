@@ -28,7 +28,7 @@ export default function LogIn({navigation}) {
           </View>
           <View style={{marginTop: '30%'}}>
             <View style={style.signUpheading}>
-              <Text style={style.signupTxt}>LOGIN</Text>
+              <Text style={style.signupTxt}>Login</Text>
             </View>
             <View style={style.formSec}>
               <View style={style.inpContainer}>
@@ -85,6 +85,7 @@ const style = StyleSheet.create({
   signupTxt: {
     fontSize: 25,
     fontWeight: 'bold',
+    fontFamily:"._proxima-nova-bold-597278273b8ca"
   },
   inpContainer: {
     marginTop: 20,
