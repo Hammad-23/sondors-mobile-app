@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
   View,
@@ -9,13 +9,32 @@ import {
   TextInput,
   SafeAreaView,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
-import { Colors } from '../../../utils/Constants';
+import {Colors} from '../../../utils/Constants';
 
 import CustomButton from '../../components/button';
 import Input from '../../components/input';
-
+import {signIn} from '../../config/firebase';
 export default function LogIn({navigation}) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [show, setShow] = useState(false);
+  const logIn = async () => {
+    setShow(true);
+
+    try {
+      await signIn(email, password);
+
+      setShow(false);
+      alert('Successfully logged in');
+      navigation.navigate('home');
+    } catch (e) {
+      console.log('register error--> ', e.message);
+      setShow(false);
+      alert('error');
+    }
+  };
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView contentContainerStyle={style.screenContainer}>
@@ -32,24 +51,33 @@ export default function LogIn({navigation}) {
             </View>
             <View style={style.formSec}>
               <View style={style.inpContainer}>
-                <Input placeholder="    Email"  />
+                <Input
+                  onChangeText={val => {
+                    setEmail(val);
+                  }}
+                  placeholder="    Email"
+                />
               </View>
 
               <View style={style.inpContainer}>
-                <Input secureTextEntry={true} placeholder=" Password" />
+                <Input
+                  onChangeText={val => {
+                    setPassword(val);
+                  }}
+                  secureTextEntry={true}
+                  placeholder=" Password"
+                />
               </View>
               <View>
-                <TouchableOpacity onPress={()=>navigation.navigate('Signup')} >
-                  <Text style={{padding:10, color:Colors.primaryColor}} >Don't have an account ?</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+                  <Text style={{padding: 10, color: Colors.primaryColor}}>
+                    Don't have an account ?
+                  </Text>
                 </TouchableOpacity>
               </View>
               <View style={style.inpContainer}>
-                <CustomButton
-                  onPress={() => {
-                    navigation.navigate('home');
-                  }}
-                  title="Login"
-                />
+                {show && <ActivityIndicator size="large" color={Colors.primaryColor} />}
+                <CustomButton onPress={logIn} title="Login" />
               </View>
             </View>
           </View>
@@ -85,7 +113,7 @@ const style = StyleSheet.create({
   signupTxt: {
     fontSize: 25,
     fontWeight: 'bold',
-    fontFamily:"._proxima-nova-bold-597278273b8ca"
+    fontFamily: '._proxima-nova-bold-597278273b8ca',
   },
   inpContainer: {
     marginTop: 20,
