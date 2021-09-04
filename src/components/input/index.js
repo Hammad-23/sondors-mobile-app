@@ -6,6 +6,7 @@ import {
  View
 } from 'react-native';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import { Colors } from '../../../utils/Constants';
 export default function Input(props) {
   return (
    <>
@@ -19,7 +20,7 @@ export default function Input(props) {
       paddingHorizontal:20,
       paddingVertical:18
     }} 
-    placeholderTextColor="#5f5f5f"
+    placeholderTextColor={Colors.inputTextColor}
     />
    </>
   );

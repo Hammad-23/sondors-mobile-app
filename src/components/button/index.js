@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {StyleSheet, TouchableOpacity, Text,ActivityIndicator} from 'react-native';
 import { Colors } from '../../../utils/Constants';
 
 export default function CustomButton(props) {
   return (
     <TouchableOpacity {...props} style={styles.btn}>
-      <Text style={styles.txt}>{props.title}</Text>
+      {props.loading?<ActivityIndicator size="small" color={"#FFF"} />:
+      <Text style={styles.txt}>{props.title}</Text>}
     </TouchableOpacity>
   );
 }
@@ -16,12 +17,12 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 50,
     borderRadius: 10,
+    paddingVertical:15
   },
   txt: {
     color: 'white',
-    fontSize: 14,
+    fontSize: 18,
     fontWeight:"bold"
   },
 });

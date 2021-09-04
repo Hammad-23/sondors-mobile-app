@@ -8,8 +8,12 @@ export default function CheckBoxx() {
   return (
     <View  >
       <CheckBox
-        disabled={false}
+        // disabled={false}
         value={toggleCheckBox}
+        tintColor="red"
+        onFillColor="pink"
+        onCheckColor="red"
+        tintColors="Black"
         onValueChange={newValue => setToggleCheckBox(newValue)}
       />
     </View>

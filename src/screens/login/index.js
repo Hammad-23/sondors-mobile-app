@@ -19,16 +19,28 @@ import {signIn} from '../../config/firebase';
 export default function LogIn({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailError,setEmailError] = useState(false)
+  const [passwordError,setPasswordError] = useState(false)
   const [show, setShow] = useState(false);
   const logIn = async () => {
     setShow(true);
 
     try {
-      await signIn(email, password);
-
-      setShow(false);
-      alert('Successfully logged in');
-      navigation.navigate('home');
+      {
+        if (email && email.includes('@' && '.') && password.length >= 6) {
+          await signIn(email, password);
+        }else{
+          if(!email || !email.includes('@' && '.')){
+            setEmailError(true)
+          }
+          if(!password.length>=6){
+            setPasswordError(true)
+          }
+        }
+        setShow(false);
+        alert('Successfully logged in');
+        navigation.navigate('home');
+      }
     } catch (e) {
       console.log('register error--> ', e.message);
       setShow(false);
@@ -55,8 +67,11 @@ export default function LogIn({navigation}) {
                   onChangeText={val => {
                     setEmail(val);
                   }}
+                  borderColor={emailError?"red":"#FFF"}
                   placeholder="Email"
                 />
+              {emailError&&<Text style={{color:"red", paddingHorizontal:10}} >Please enter a valid email address</Text>}
+
               </View>
 
               <View style={style.inpContainer}>
@@ -64,9 +79,12 @@ export default function LogIn({navigation}) {
                   onChangeText={val => {
                     setPassword(val);
                   }}
+                  borderColor={passwordError?"red":"#FFF"}
                   secureTextEntry={true}
                   placeholder="Password"
                 />
+              {passwordError&&<Text style={{color:"red", paddingHorizontal:10}} >Password must contain at least 6 characters</Text>}
+
               </View>
               <View>
                 <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
@@ -76,7 +94,9 @@ export default function LogIn({navigation}) {
                 </TouchableOpacity>
               </View>
               <View style={style.inpContainer}>
-                {show && <ActivityIndicator size="large" color={Colors.primaryColor} />}
+                {show && (
+                  <ActivityIndicator size="large" color={Colors.primaryColor} />
+                )}
                 <CustomButton onPress={logIn} title="Login" />
               </View>
             </View>
