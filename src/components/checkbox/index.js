@@ -6,7 +6,7 @@ import CheckBox from '@react-native-community/checkbox';
 export default function CheckBoxx() {
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
   return (
-    <View style={{paddingHorizontal:10}}  >
+    <View  >
       <CheckBox
         disabled={false}
         value={toggleCheckBox}

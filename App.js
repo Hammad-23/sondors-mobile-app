@@ -7,7 +7,6 @@
  */
 
 import React,{useEffect} from 'react';
-
 import {Image} from 'react-native';
 import BottomTabs from './src/navigations/bottomTab';
 import Welcome from './src/screens/welcome';

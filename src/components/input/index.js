@@ -14,12 +14,13 @@ export default function Input(props) {
       backgroundColor:'#FFFF',
       width:'100%',
       borderRadius:15,
-      height:58
+      borderColor:props.borderColor,
+      borderWidth:1,
+      paddingHorizontal:20,
+      paddingVertical:18
     }} 
-    placeholderTextColor="#cecece"
+    placeholderTextColor="#5f5f5f"
     />
-
-
    </>
   );
 }

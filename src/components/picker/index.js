@@ -3,15 +3,14 @@ import {Picker} from '@react-native-picker/picker';
 import {StyleSheet,View,Text} from 'react-native';
 
 export default function Select(props) {
-  const [selectedLanguage, setSelectedLanguage] = useState();
+  const [selectedLanguage, setSelectedLanguage] = useState(props.selectedValue);
   return (
-    <View style={{backgroundColor:"#FFF", width:"100%",paddingVertical:5, borderRadius:15}} >
+    <View style={{backgroundColor:"#FFF", width:"100%",paddingVertical:5, borderRadius:15, borderColor:props.borderColor,borderWidth:1}} >
     
       <Picker style={style.selectStyle}
         selectedValue={selectedLanguage}
-        onValueChange={(itemValue, itemIndex) =>
-          setSelectedLanguage(itemValue)
-        }>
+        onValueChange={props.onValueChange}
+        >
         <Picker.Item style={{fontSize:14}} label={props.label1} value={props.label1} />
         <Picker.Item style={{fontSize:14}} label={props.label2} value={props.label2} />
       </Picker>

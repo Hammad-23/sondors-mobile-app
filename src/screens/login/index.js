@@ -55,7 +55,7 @@ export default function LogIn({navigation}) {
                   onChangeText={val => {
                     setEmail(val);
                   }}
-                  placeholder="    Email"
+                  placeholder="Email"
                 />
               </View>
 
@@ -65,7 +65,7 @@ export default function LogIn({navigation}) {
                     setPassword(val);
                   }}
                   secureTextEntry={true}
-                  placeholder=" Password"
+                  placeholder="Password"
                 />
               </View>
               <View>

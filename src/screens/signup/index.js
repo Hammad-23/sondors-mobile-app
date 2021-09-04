@@ -23,15 +23,42 @@ export default function SignUp({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [show, setShow] = useState(false);
-
+  const [name,setName] = useState('')
+  const [age,setAge] = useState('')
+  const [ gender,setGender] = useState("Male")
+  const [state,setState] = useState('')
+  const [emailError,setEmailError] = useState(false)
+  const [nameError, setNameError] = useState(false)
+  const [ageError,setAgeError] = useState(false)
+  const [stateEror,setStateError] = useState(false)
+  const [passwordError,setPasswordError] = useState(false)
   const signUp = async () => {
-    setShow(true);
-
+    
     try {
-      await register(email, password);
+      if (email && name && password && age && state ){
+        setShow(true);
+      await register(email, password)
       setShow(false);
       alert('User registered Successfully');
       navigation.navigate('Login');
+    }else{
+      if(!name){
+        setNameError(true)
+      }
+      if(!email || email.includes('@')!==true){
+        setEmailError(true)
+      }
+      if(!age || age.includes('.'||','||' ')){
+        setAgeError(true)
+      }
+      if(!state || state==="State"){
+        setStateError(true)
+      }
+      if(!password){
+        setPasswordError(true)
+        password.length<6?alert('Password must contain at least 6 characters'):null
+      }
+    } 
     } catch (e) {
       console.log('register error--> ', e.message);
       setShow(false);
@@ -54,51 +81,62 @@ export default function SignUp({navigation}) {
             <View style={style.signUpheading}>
               <Text style={style.signupTxt}>Signup</Text>
             </View>
-
-            <View style={style.formSec}>
+            <View style={ style.formSec}>
               <View style={style.inpContainer}>
                 <Input
                   onChangeText={val => {
-                    setEmail(val);
+                    setEmail(val);setEmailError(false)
                   }}
-                  placeholder="    Email"
+                  borderColor={emailError?"red": "#FFF"}
+                  placeholder="Email*"
                 />
+               {emailError&&<Text style={{color:"red", paddingHorizontal:10}} >Please enter a valid email address</Text>}
               </View>
 
               <View style={style.inpContainer}>
-                <Input placeholder="    Name" />
-              </View>
+                <Input placeholder="Name*"  onChangeText={val => {
+                    setName(val);setNameError(false)
+                  }}
+                  borderColor={nameError?"red": "#FFF"}
+                  />
+              {nameError&&<Text style={{color:"red", paddingHorizontal:10}} >Please enter a valid name</Text>}
 
+              </View>
               <View style={style.inpContainer}>
                 <Input
                   secureTextEntry={true}
                   onChangeText={val => {
-                    setPassword(val);
+                    setPassword(val);setPasswordError(false)
                   }}
-                  placeholder="    Password"
+                  borderColor={passwordError?"red": "#FFF"}
+                  placeholder="Password"
                 />
+                {passwordError&&<Text style={{color:"red", paddingHorizontal:10}} >Password must contain at least 6 characters</Text>}
               </View>
 
               <View style={style.inpContainer}>
-                <Input keyboardType="numeric" placeholder="    Age" />
+                <Input onChangeText={(value)=>{setAge(value);setAgeError(false)}}  borderColor={ageError?"red": "#FFF"}keyboardType="numeric" placeholder="Age*" />
+                {ageError&&<Text style={{color:"red", paddingHorizontal:10}} >Age must be a valid whole number</Text>}
+
               </View>
 
               <View style={style.inpContainer}>
                 {/* <Input placeholder="    Sex" /> */}
-                <Select label1="Male" label2="Female" />
+                <Select borderColor="#FFF" label1="Male" label2="Female" />
               </View>
 
               <View style={style.inpContainer}>
-                <Select label1="State" label2="JavaScript" />
+                <Select borderColor={stateEror?"red":"#FFF"} onValueChange={(value)=>{setState(value);setStateError(false)}} label1="State*" label2="California" />
+                {stateEror&&<Text style={{color:"red", paddingHorizontal:10}} >Please select a state</Text>}
               </View>
 
               <View style={style.inpContainer}>
-                <Input placeholder="    Serial Number" />
+                <Input borderColor={"#FFF"} placeholder="Serial Number" />
               </View>
 
               <View style={style.inpContainer2}>
                 <CheckBoxx />
-                <Text>Agree to the terms of service</Text>
+                <Text style={{paddingHorizontal:10, color:"#5f5f5f"}} >Agree to the terms of service</Text>
               </View>
               {/* <View>
                 <TouchableOpacity onPress={()=>navigation.navigate('Login')} >
@@ -145,10 +183,11 @@ const style = StyleSheet.create({
     fontFamily: '._proxima-nova-bold-597278273b8ca',
   },
   inpContainer: {
-    marginTop: 10,
+    marginTop: 12,
+    borderRadius:15
   },
   inpContainer2: {
-    marginTop: 10,
+    marginTop: 12,
     flexDirection: 'row',
     alignItems: 'center',
   },
