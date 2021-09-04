@@ -18,8 +18,11 @@ export default function Input(props) {
       borderColor:props.borderColor,
       borderWidth:1,
       paddingHorizontal:20,
-      paddingVertical:18
+      paddingVertical:18,
+      color:Colors.inputTextColor,
+      fontWeight:"bold"
     }} 
+  
     placeholderTextColor={Colors.inputTextColor}
     />
    </>

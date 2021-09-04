@@ -23,23 +23,24 @@ export default function LogIn({navigation}) {
   const [passwordError,setPasswordError] = useState(false)
   const [show, setShow] = useState(false);
   const logIn = async () => {
-    setShow(true);
 
     try {
       {
         if (email && email.includes('@' && '.') && password.length >= 6) {
+          setShow(true);
           await signIn(email, password);
+          setShow(false);
+          alert('Successfully logged in');
+          navigation.navigate('home');
         }else{
           if(!email || !email.includes('@' && '.')){
             setEmailError(true)
           }
-          if(!password.length>=6){
+          if(!password.length<6){
             setPasswordError(true)
           }
         }
-        setShow(false);
-        alert('Successfully logged in');
-        navigation.navigate('home');
+       
       }
     } catch (e) {
       console.log('register error--> ', e.message);
@@ -94,10 +95,8 @@ export default function LogIn({navigation}) {
                 </TouchableOpacity>
               </View>
               <View style={style.inpContainer}>
-                {show && (
-                  <ActivityIndicator size="large" color={Colors.primaryColor} />
-                )}
-                <CustomButton onPress={logIn} title="Login" />
+               
+                <CustomButton loading={show} onPress={logIn} title="Login" />
               </View>
             </View>
           </View>

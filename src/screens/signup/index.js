@@ -25,14 +25,13 @@ export default function SignUp({navigation}) {
   const [show, setShow] = useState(false);
   const [name,setName] = useState('')
   const [age,setAge] = useState('')
-  const [ gender,setGender] = useState("Male")
-  const [state,setState] = useState('')
   const [emailError,setEmailError] = useState(false)
   const [nameError, setNameError] = useState(false)
   const [ageError,setAgeError] = useState(false)
   const [stateEror,setStateError] = useState(false)
   const [passwordError,setPasswordError] = useState(false)
   const codes =[
+    {"name": "Afghanistan", "code": "Select*"},
     {"name": "Afghanistan", "code": "AF"},
     {"name": "Åland Islands", "code": "AX"},
     {"name": "Albania", "code": "AL"},
@@ -274,13 +273,13 @@ export default function SignUp({navigation}) {
     {"name": "Zambia", "code": "ZM"},
     {"name": "Zimbabwe", "code": "ZW"}
     ]
-  const [country,setCountry] = useState('Select')
+  const [country,setCountry] = useState('Select*')
   const [selectedGender,setSelectedGender] = useState('Select')
   console.log("My Selected Gender ",selectedGender);
   const signUp = async () => {
     
     try {
-      if (email && email.includes('@' && '.') && password.length >= 6 && name && password && age && state ){
+      if (email && email.includes('@' && '.') && password.length >= 6 && name && password && age && country!=="Select*" ){
         setShow(true);
       await register(email, password)
       setShow(false);
@@ -296,7 +295,7 @@ export default function SignUp({navigation}) {
       if(!age || age.includes('.'||','||' ')){
         setAgeError(true)
       }
-      if(!state || state==="State"){
+      if(!country || country==="Select*"){
         setStateError(true)
       }
       if(password.length<6 ){
@@ -315,6 +314,7 @@ export default function SignUp({navigation}) {
       setSelectedGender(value)
   }
   function countryChange(value) {
+    setStateError(false)
     console.log(';;;',value)
     setCountry(value)
   }
@@ -378,7 +378,7 @@ export default function SignUp({navigation}) {
                 {/* <Input placeholder="    Sex" /> */}
                 <Select
                   onValueChange={genderChange}
-                pickerValue={selectedGender} list ={[{code:"Male"},{code:"Female"}]} borderColor="#FFF" label1="Male" label2="Female" />
+                pickerValue={selectedGender} list ={[{code:"Gender*"},{code:"Male"},{code:"Female"}]} borderColor="#FFF" label1="Male" label2="Female" />
               </View>
               <View style={style.inpContainer}  >
                 <Select list={codes} borderColor={stateEror?"red":"#FFF"} onValueChange={countryChange} pickerValue={country} />

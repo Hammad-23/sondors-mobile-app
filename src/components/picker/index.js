@@ -13,10 +13,10 @@ export default function Select(props) {
       <Picker style={style.selectStyle}
         selectedValue={props.pickerValue}
         dropdownIconColor={Colors.inputTextColor}
-        mode="dialog"
+        mode="dropdown"
         onValueChange={(value)=>props.onValueChange(value)}
         >
-        {props.list?.map ((item)=><Picker.Item  style={{fontSize:14}} label={item.code} value={item.code} />)}
+        {props.list?.map ((item)=><Picker.Item  style={{fontSize:14,color:'white'}} label={item.code} value={item.code} />)}
       </Picker>
     </View>
   );
@@ -29,6 +29,6 @@ const style = StyleSheet.create({
         alignSelf:"center",
         color:Colors.inputTextColor,
         borderRadius:15,
-        
+        fontWeight:"bold"
     }
 })
