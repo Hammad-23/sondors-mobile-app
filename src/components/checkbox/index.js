@@ -9,11 +9,13 @@ export default function CheckBoxx() {
     <View  >
       <CheckBox
         // disabled={false}
+        style={{}}
         value={toggleCheckBox}
-        tintColor="red"
-        onFillColor="pink"
-        onCheckColor="red"
+        tintColor="black"
+        onFillColor="black"
+        onCheckColor="#FFF"
         tintColors="Black"
+        onTintColor="black"
         onValueChange={newValue => setToggleCheckBox(newValue)}
       />
     </View>

@@ -18,6 +18,7 @@ import Select from '../../components/picker';
 import CheckBoxx from '../../components/checkbox';
 import {Colors} from '../../../utils/Constants';
 import {register} from '../../config/firebase';
+import CheckIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 export default function SignUp({navigation}) {
   const [isSelected, setSelection] = useState(false);
   const [email, setEmail] = useState('');
@@ -30,8 +31,10 @@ export default function SignUp({navigation}) {
   const [ageError,setAgeError] = useState(false)
   const [stateEror,setStateError] = useState(false)
   const [passwordError,setPasswordError] = useState(false)
+  const [check,setCheck] = useState(false)
   const codes =[
-    {"name": "Afghanistan", "code": "Select*"},
+    {"name": "State*", "code": "State*"},
+    {"name": "Afghanistan", "code": "AFG*"},
     {"name": "Afghanistan", "code": "AF"},
     {"name": "Åland Islands", "code": "AX"},
     {"name": "Albania", "code": "AL"},
@@ -284,10 +287,12 @@ export default function SignUp({navigation}) {
       await register(email, password)
       setShow(false);
       alert('User registered Successfully');
+     
       navigation.navigate('Login');
     }else{
       if(!name){
         setNameError(true)
+       
       }
       if(!email || !email.includes('@'&&'.')){
         setEmailError(true)
@@ -378,7 +383,7 @@ export default function SignUp({navigation}) {
                 {/* <Input placeholder="    Sex" /> */}
                 <Select
                   onValueChange={genderChange}
-                pickerValue={selectedGender} list ={[{code:"Gender*"},{code:"Male"},{code:"Female"}]} borderColor="#FFF" label1="Male" label2="Female" />
+                pickerValue={selectedGender} list ={[{name:"Gender",code:""},{name:"Male",code:"Male"},{name:"Female",code:"Female"}]} borderColor="#FFF" label1="Male" label2="Female" />
               </View>
               <View style={style.inpContainer}  >
                 <Select list={codes} borderColor={stateEror?"red":"#FFF"} onValueChange={countryChange} pickerValue={country} />
@@ -389,7 +394,8 @@ export default function SignUp({navigation}) {
               </View>
 
               <View style={style.inpContainer2}>
-                <CheckBoxx />
+                <CheckIcon onPress={()=>setCheck(!check)} 
+                name={check? "checkbox-blank-outline":"checkbox-marked"} size={25} />
                 <Text style={{paddingHorizontal:10, color:"#5f5f5f"}} >Agree to the terms of service</Text>
               </View>
               {/* <View>
@@ -450,6 +456,7 @@ const style = StyleSheet.create({
     marginTop: 12,
     flexDirection: 'row',
     alignItems: 'center',
+    paddingHorizontal:5
   },
   formSec: {
     marginTop: 40,
