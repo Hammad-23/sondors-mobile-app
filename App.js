@@ -29,7 +29,7 @@ export default function App(){
     <Stack.Navigator initialRouteName="Welcome">
       <Stack.Screen  name="Welcome" component={Welcome} />
 
-  
+      
 
     </Stack.Navigator>
   </NavigationContainer>
