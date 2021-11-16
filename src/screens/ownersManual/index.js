@@ -74,9 +74,9 @@ export default function OwnersManual({navigation, route}) {
       .then(res => {
         //Showing alert after successful downloading
         console.log('res -> ', JSON.stringify(res));
+        // alert('Report Downloaded Successfully.');
         RNFetchBlob.android.actionViewIntent(res.path(), 'application/pdf')
 
-        alert('Report Downloaded Successfully.');
       });
   };
 
